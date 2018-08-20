@@ -1,4 +1,4 @@
-#	THE MYSTORM BLACKICE II DEVELOPMENT BOARD
+#	The MyStorm BlackIce II Development Board
 
 ![myStorm BlackIce II][img1]
 
