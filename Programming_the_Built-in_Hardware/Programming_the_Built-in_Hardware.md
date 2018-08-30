@@ -19,14 +19,14 @@ Instructions for setting the tools up for BlackIce II are [here][].
 
 [here]:		https://github.com/mystorm-org/BlackIce-II/wiki/Getting-Started
 
-Each project has its own directory contains the Verilog (.v) files, a .pcf file that maps pin names onto physical pin numbers, and a Makefile of the form:  
+Each project has its own directory contains the Verilog (.v) files, a .pcf file that maps pin names onto physical pin numbers, and a Makefile of the form:
 
-	VERILOG_FILES = `<list of Verilog files`>
-	PCF_FILE = `<pcf file`>
+	VERILOG_FILES = <list of Verilog files>
+	PCF_FILE = <pcf file>
 
 	include blackice.mk
 
-Where blackice.mk is:  
+Where blackice.mk is:
 
 	chip.bin: $(VERILOG_FILES) ${PCF_FILE}
 		yosys -q -p "synth_ice40 -blif chip.blif" $(VERILOG_FILES)
