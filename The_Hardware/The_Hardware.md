@@ -204,6 +204,9 @@ QSPI is a boot way to transfer data at fast rates between the STM32 and the Ice4
 
 There are also multiple sets of SPI and UART pins.
 
+
+[BlackIce Wiki]:	https://github.com/mystorm-org/BlackIce-II/wiki/Connections-between-the-STM32-and-the-iCE40
+
 ### DIG16- 19 pins
 
 There are 4 extra pins on Arduino digital3 header, called DIG16, DIG17, DIG18 and DIG19. They correspond to Ice40 pins 41, 39, 38 and 37. They are also shared with Pmod13 and the 4 sliders. They are pulled up to 3.3v by a 10k resistor.
@@ -242,5 +245,3 @@ There is a Mux which is controllable from the STM32 that switches these pins bet
 
 If you are using SPI from the STM32 (e.g. in an Arduino program), or via the Rpi header from a Raspberry Pi, then the LEDs are not available and will be off.
 
-
-[BlackIce Wiki]:	https://github.com/mystorm-org/BlackIce-II/wiki/Connections-between-the-STM32-and-the-iCE40
