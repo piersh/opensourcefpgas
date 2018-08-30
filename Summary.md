@@ -12,3 +12,6 @@
    * [The STM32 Processor](The_Hardware/The_STM32_Processor.md)
    * [Normal / DFU Mode Jumper](The_Hardware/Normal_DFU_Mode_Jumper.md)
 
+## Programming the Built-in Hardware
+
+* [Programming the Built-in Hardware](Programming_the_Built-in_Hardware.md)
