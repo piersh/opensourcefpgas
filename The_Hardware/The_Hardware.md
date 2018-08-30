@@ -109,7 +109,7 @@ Pmod13 is shared with the slider switches which have 10k pull-up resistors to 3.
 Pmod14 is shared with the Leds.
 
 You can plug a huge array of hardware into the Ice40 FPGA using single row and double row Pmods. And using double or even triple Pmods.
-
+  |  
 If your device needs a 5v supply, it can get it from the VIN pin on the Arduino header.
 
 [Pmod]:				https://en.wikipedia.org/wiki/Pmod_Interface
@@ -118,3 +118,21 @@ If your device needs a 5v supply, it can get it from the VIN pin on the Arduino 
 [BlackMesaLabs]:	https://www.oshpark.com/profiles/BlackMesaLabs
 [BikerGlen]:		https://oshpark.com/profiles/bikerglen
 [img2]:				./Pmods.jpg "A Collection of Pmods"
+
+## Pins and Signals
+
+### Pmod pins
+
+The pin numbers for Pmods are as follows:
+
+| Pmod |     | 10  |  9  |  8  |  7  |  4  |  3  |  2  |  1  |
+| ---- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| 1/2  |     | 87  | 90  | 93  | 95  | 85  | 88  | 91  | 94  |
+| 3/4  |     | 106 | 98  | 101 | 104 | 97  | 99  | 102 | 105 |
+| 4/5  |     | 106 | 110 | 113 | 144 | 107 | 112 | 114 | 143 |
+| 7/8  |     |  3  |  4  |  7  |  8  |  1  |  2  |  9  | 10  |
+| 9/10 |     | 11  | 12  | 17  | 18  | 15  | 16  | 19  | 20  |
+|11/12 |     | 25  | 26  | 31  | 32  | 21  | 22  | 33  | 34  |
+|  13  |     |     |     |     |     | 41  | 39  | 38  | 37  |
+|  14  |     |     |     |     |     | 70  | 67  | 68  | 71  |
+
