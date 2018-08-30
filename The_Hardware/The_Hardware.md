@@ -245,3 +245,60 @@ There is a Mux which is controllable from the STM32 that switches these pins bet
 
 If you are using SPI from the STM32 (e.g. in an Arduino program), or via the Rpi header from a Raspberry Pi, then the LEDs are not available and will be off.
 
+
+## USB Port (USB 1)
+
+The USB port USB1 is connected to the STM32 processor which can support full USB capability. The iceboot software uses it as a cdc-acm serial communication port that runs at full speed and is available as /dev/ttyACM0 on Linux. You do not need to set a baud rate fort this port as it runs at full speed, but you should set it to raw by “stty -F /dev/ttyACM0 raw” for the iceboot bitstream configuration to work correctly in binary (raw) mode.
+
+Custom firmware on the STM32 can use this port in any way that it wants.
+
+## USB UART (USB 2)
+
+The BlackIce2 has a UART from the FPGA to USB connector 2, which can also be switched to go to the Raspberry Pi header and to the STM32. It also has two extra hardware serial connectors from the STM32 to the Ice40 FPGA.
+
+The USB2 connector has a reset pin (greset) connected to it that can send a signal to the FPGA when a serial connection is started.
+
+This example uses the USB2 connector to send data from a Linux host computer to the FPGA.
+
+Such a connection can send commands to and get responses from, the FPGA. It is also useful for debugging.
+
+The UART uses a cheap CH340 device to provide a serial connection of up to 115200 baud. It is /dev/ttyUSB0 on Linux, unless you are using it via the RPi header when it is /dev/ttyAMA0. RX, RX and RTS signals are connected to the STM32, the Ice40, the RPi header and the USB2 port via the CH340. Anything that is not using the connection should tri-state the pins (i.e. set the pin mode to input) so that they do not interfere with the other devices.
+
+The iceboot software initially sends boot messages to the device, but after the FPGA has been configured, it tristate its pins so that the uart is available to the Ice40. The Ice40 can then transfer data to and from the USB2 port or the RPi header or Pmod 1. It should be possible to use the uart to communicate between the STM32 and the Ice40, but that does not seem to work, and there are other serial ports available between those devices, as well as SPI and QSPI.
+
+## Arduino headers
+
+The pins on the Arduino headers are only available to the STM32, apart from DIG16 – 19, which are available to both, but see above for potential pitfalls in using those pins.
+
+An Arduino board package is available for programming the STM32 using the Arduino IDE and can use Arduino Uno shields, but preferably ones that work at 3.3v. Some limited use of 5v shields is possible but care should be taken with them. The analog pins, for example, are not 5v tolerant.
+
+The VIN and 5v pins on the digital3 Arduino header and useful for powering hardware that needs 5v.
+
+FPGA (Verilog) applications cannot get direct access to the Arduino headers, they must talk to the STM32 (e.g. via SPI or QSPI), and the STM32 applications (for example an Arduino one) can then talk to the hardware plugged in to the Arduino headers. This is a way to to use Analog devices or screens such as the Gameduino 3.
+
+## RPi header
+
+The Rpi header allows the Ice40 and the STM32 to talk to a Raspberry Pi using a ribbon cable or directly to a Raspberry Pi Zero plugged in to the headed via a female header on the underside of the Pi Zero.
+
+| WiringPi | GPIO   | Usage  | Phys | Pin# | Usage | GPIO   | WiringPi |
+| -------- |:----   |:-----  |:---- |:---- |:----- |:----   |:-------- |
+|          |        |  NC    |  1   |  2   |  5V   |        |          |
+|    8     | GPIO2  |  SDA   |  3   |  4   |  5V   |        |          |
+|    9     | GPIO3  |  SCL   |  5   |  6   |  GND  |        |          |
+|    7     | GPIO4  | SWCLK  |  7   |  8   |  RX   | GPIO14 |    15    |
+|          |        |  GND   |  9   |  10  |  TX   | GPIO15 |    16    |
+|    0     | GPIO17 | SWDIO  |  11  |  12  |   S   | GPIO18 |    1     |
+|    2     | GPIO27 | nRESET |  13  |  14  |  GND  |        |          |
+|    3     | GPIO22 |   OE   |  15  |  16  | BOOT  | GPIO23 |    4     |
+|          |        |   NC   |  17  |  18  | RESET | GPIO24 |    5     |
+|    12    | GPIO10 |  EMOSI |  19  |  20  |  GND  |        |          |
+|    13    | GPIO9  |  EMISO |  21  |  22  | DONE  | GPIO25 |    6     |
+|    14    | GPIO11 |  ESCK  |  23  |  24  |  ESS  | GPIO8  |    10    |
+|          |        |  GND   |  25  |  26  |  NC   | GPIO7  |    11    |
+
+
+## Schematic
+
+![Schematic][img3]
+
+[img3]:				./Schematic.jpg "Schematic"
