@@ -161,3 +161,86 @@ The pins numbers used for the SRAM are:
 |     16      | 119 |     | 
 |     17      | 78  |     | 
 
+The pins used for SRAM control are:
+
+|  Name  | Pin |
+|  ----  |:--- |
+| RAM_OE | 29  |
+| RAM_WE | 120 |
+| RAM_CS | 23  |
+| RAM_UB | 28  |
+| RAM_LB | 24  |
+ 
+
+### QSPI pins
+
+|     Name     | Pin |
+|     ----     |:--- |
+|   QPSI_CSN   | 81  |
+|   QPSI_CK    | 82  |
+| QPISI_IDQ[0] | 83  |
+| QPISI_IDQ[1] | 84  |
+| QPISI_IDQ[2] | 79  |
+| QPISI_IDQ[3] | 80  |
+
+
+### Other pins
+
+|  Name   | Pin |
+|  ----   |:--- |
+|   clk   | 129 |
+| greset  | 128 |
+|  DONE   | 52  |
+|  DBG1   | 49  |
+| Button1 | 63  |
+| Button2 | 64  |
+
+
+### Pin shared between the Ice40 and the STM32
+
+There is an article on this in the [BlackIce Wiki][].
+
+QSPI is a boot way to transfer data at fast rates between the STM32 and the Ice40.
+
+There are also multiple sets of SPI and UART pins.
+
+### DIG16- 19 pins
+
+There are 4 extra pins on Arduino digital3 header, called DIG16, DIG17, DIG18 and DIG19. They correspond to Ice40 pins 41, 39, 38 and 37. They are also shared with Pmod13 and the 4 sliders. They are pulled up to 3.3v by a 10k resistor.
+
+In addition, the pins are used for SD card access.
+
+There are various consequences of the reuse of these pins. If you are doing SD card access, the sliders must be in the pull-up or OFF position (away from the outside of the board).
+
+When the sliders are in the ON position (towards the outside of the board) they are hard-connected to GND. If you connect a 3.3v source to Pmod 1q3 or the DIG16-19 Arduino pins when the switches are in that position, you will cause a short-circuit and the board will reboot. You may damage the board doing that.
+
+### The Clock
+
+Pin 129 is the external clock, connected to a 100 Mhz oscillator.  This clock, or clocks derived from it, is used to co-ordinate all sequential logic.
+
+Clocks of other frequencies can be derived from this clock pin by use of pre-scalers or Phase Lock Loops (PLLs). PLLS are described in the Directives chapter.
+
+Pre-scalers are mainly use for clocks that are a factor of 100, such as 33.3Mhz, 25Mhz, or 20Mhz.
+
+### gReset pin
+
+This pin is connected to the CH340 UART device and is brought high when a connection to the USB2 UART is made. It is not associated with reset button or the Ice40 reset pin.
+
+If you need an external reset signal you should use buttons 1 or 2.
+
+### User buttons
+
+Button1 and button2 correspond to Ice40 pins 63 and 64, They are pulled up to 3.3v by a 10k resistor, so they are pulled low when pressed.
+
+These pins are also used to access the SD card, so don’t press them when the SD card is in use.
+
+### LEDs
+
+The LEDS correspond to pins 71, 68, 67 and 70, which are shared with Pmod 14.
+
+There is a Mux which is controllable from the STM32 that switches these pins between use as SPI pins and the LEDs. SPI is used to configure the Ice40, and when that is finished, iceboot switches the Mux so the LEDs can be used. 
+
+If you are using SPI from the STM32 (e.g. in an Arduino program), or via the Rpi header from a Raspberry Pi, then the LEDs are not available and will be off.
+
+
+[BlackIce Wiki]:	https://github.com/mystorm-org/BlackIce-II/wiki/Connections-between-the-STM32-and-the-iCE40
