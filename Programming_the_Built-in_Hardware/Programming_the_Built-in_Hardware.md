@@ -16,9 +16,12 @@ All the projects are built using the open source icestorm tools: yosys, arachne-
 
 Instructions for setting the tools up for BlackIce II are [here][].
 
+
+[here]:		https://github.com/mystorm-org/BlackIce-II/wiki/Getting-Started
+
 Each project has its own directory contains the Verilog (.v) files, a .pcf file that maps pin names onto physical pin numbers, and a Makefile of the form:  
-	VERILOG_FILES = <list of Verilog files>
-	PCF_FILE = <pcf file>
+	VERILOG_FILES = `<list of Verilog files`>
+	PCF_FILE = `<pcf file`>
 
 	include blackice.mk
 
@@ -37,5 +40,3 @@ Where blackice.mk is:
 	clean:
 		$(RM) -f chip.blif chip.txt chip.bin
 
-
-[here]:		https://github.com/mystorm-org/BlackIce-II/wiki/Getting-Started
