@@ -16,10 +16,10 @@
   </head>
   <body>
 
-      <div id="header2">
+      <div id="header">
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
-      </div><!-- end header2 -->
+      </div><!-- end header -->
 
       <div id="banner2">
         <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
@@ -33,9 +33,9 @@
       </div><!-- end banner2 -->
 
     <div class="wrapper">
-      <div id=nav2>
+      <nav>
         <ul></ul>
-      </div><!-- end nav2 -->
+      </nav>
       <section>
         {{ content }}
 
