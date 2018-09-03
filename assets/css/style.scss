@@ -12,7 +12,7 @@ header2 {
   right:0;
   width: 100%;
   text-align: center;
-  background: #213a5a;
+  background-color: #213a5a;
   box-shadow: 1px 0px 2px rgba(0,0,0,.75);
   z-index:99;
   -webkit-font-smoothing:antialiased;
@@ -44,7 +44,7 @@ header2 {
   right:50%;
   height: 50px;
   margin-right:-382px;
-  position: relative;
+  position: fixed;
   top: 115px;
   background: #dead42;
   border: 1px solid #f0b500;
@@ -74,7 +74,7 @@ header2 {
   }
 
   .fork {
-    position: relative;
+    position: fixed;
     left:50%;
     margin-left:-325px;
     padding: 10px 12px;
