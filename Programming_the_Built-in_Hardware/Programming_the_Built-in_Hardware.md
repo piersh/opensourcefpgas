@@ -133,3 +133,162 @@ Makefile:
 	PCF_FILE = leds.pcf
 
 	include ../blackice.mk
+
+## Buttons
+
+The BlackIce II board has two built-in buttons available to the FPGA.
+- Button 1, pin 63
+- Button 2, pin 64
+
+### Light an LED when button pressed
+
+Make a directory called button and in it add:
+button_test.pcf:
+
+	set_io blue_led 71
+
+	set_io button1 63
+
+button_test.v:
+
+	module button_test(
+		output blue_led,
+		input button1
+	);
+
+		assign blue_led = ~button1;
+
+	endmodule
+
+Makefile:
+
+	VERILOG_FILES = button_test.v
+	PCF_FILE = button_test.pcf
+
+	include ../blackice.mk
+
+If you need more buttons for your project, you can buy the [Digilent Pmod BTN][], which has 4 buttons.
+
+[Digilent Pmod BTN]:		https://store.digilentinc.com/pmodbtn-4-user-pushbuttons/
+
+### Debouncing
+
+Accessing buttons as in the way given by the previous example is not recommended as a button takes a while to stabilise when it is pressed and if this is not programmed for, a single button press can appear as multiple presses.
+
+Coping with this behaviour is known as debouncing the button.
+
+There is an [article on this][] at fpgafun.com.
+
+To see the problem, lets implement a simple button press module and use the 4 leds as a counter:
+
+Make a directory called bounce and add:
+
+bounce.pcf
+
+	set_io leds[0] 71
+	set_io leds[1] 67
+	set_io leds[2] 68
+	set_io leds[3] 70
+
+	set_io button 63
+
+bounce.v
+
+	module bounce(
+		input button,
+		output [3:0] leds
+	);
+
+		always @(negedge button) leds <= leds + 1;
+
+	endmodule
+
+We use *negedge* as the button is pulled low when pressed.
+
+Build and upload in the normal way and you should see the led counter increasing by more than one per press.
+
+To fix this, we will use the debouncer from fpgafun.com.
+
+So, create a directory called debounce and add:
+
+debounce.pcf:
+
+	set_io clk 129
+
+	set_io leds[0] 71
+	set_io leds[1] 67
+	set_io leds[2] 68
+	set_io leds[3] 70
+
+	set_io button 63
+
+Then add the debouncer from fpgafun.com:
+
+PushButton_Debouncer.v:
+
+	module PushButton_Debouncer(
+		input clk,
+		input PB,  // "PB" is the glitchy, asynchronous to clk, active low push-button signal
+
+		// from which we make three outputs, all synchronous to the clock
+		output reg PB_state,  // 1 as long as the push-button is active (down)
+		output PB_down,  // 1 for one clock cycle when the push-button goes down (i.e. just pushed)
+		output PB_up   // 1 for one clock cycle when the push-button goes up (i.e. just released)
+	);
+
+		// First use two flip-flops to synchronize the PB signal the "clk" clock domain
+		reg PB_sync_0;  always @(posedge clk) PB_sync_0 <= ~PB;  // invert PB to make PB_sync_0 active high
+		reg PB_sync_1;  always @(posedge clk) PB_sync_1 <= PB_sync_0;
+
+		// Next declare a 16-bits counter
+		reg [15:0] PB_cnt;
+
+		// When the push-button is pushed or released, we increment the counter
+		// The counter has to be maxed out before we decide that the push-button state has changed
+
+		wire PB_idle = (PB_state==PB_sync_1);
+		wire PB_cnt_max = &PB_cnt;	// true when all bits of PB_cnt are 1's
+
+		always @(posedge clk)
+		if(PB_idle)
+			PB_cnt <= 0;  // nothing's going on
+		else
+		begin
+			PB_cnt <= PB_cnt + 16'd1;  // something's going on, increment the counter
+			if(PB_cnt_max) PB_state <= ~PB_state;  // if the counter is maxed out, PB changed!
+		end
+
+		assign PB_down = ~PB_idle & PB_cnt_max & ~PB_state;
+		assign PB_up   = ~PB_idle & PB_cnt_max &  PB_state;
+	endmodule
+
+Then, to test it add debounce.v:
+
+	module debounce(
+		input clk,
+		input button,
+		output [3:0] leds
+	);
+
+		reg PB_state, PB_down, PB_up;
+
+		PushButton_Debouncer pdb (
+			.clk(clk),.PB(button), .PB_state(PB_state),
+			.PB_down(PB_down), .PB_up(PB_up)
+		);
+
+		always @(posedge clk) if (PB_down) leds <= leds + 1;
+
+	endmodule
+
+and a Makefile:
+
+	VERILOG_FILES = debounce.v PushButton_Debouncer.v
+	PCF_FILE = debounce.pcf
+
+	include ../blackice.mk
+
+When you make and run this you should see the led counter increase by 1 for each button press.
+
+[article on this]:			https://www.fpga4fun.com/Debouncer.html
+
