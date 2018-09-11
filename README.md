@@ -14,3 +14,4 @@ By Lawrie Griffiths
 * [Directives](/opensourcefpgas/Directives/Directives.html)
 * [Memory Access](/opensourcefpgas/Memory_Access/Memory_Access.md)
 * [Soft Processors](/opensourcefpgas/Soft_Processors/Soft_Processors.md)
+* [BlackSoC](/opensourcefpgas/BlackSoC/BlackSoC.md)
