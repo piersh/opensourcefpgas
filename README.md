@@ -11,3 +11,4 @@ By Lawrie Griffiths
 * [Contents](/opensourcefpgas/Summary.html)
 * [The Hardware](/opensourcefpgas/The_Hardware/The_Hardware.html)
 * [Programming the Built-in Hardware](/opensourcefpgas/Programming_the_Built-in_Hardware/Programming_the_Built-in_Hardware.html)
+* [Directives](/opensourcefpgas/Directives/Directives.html)
