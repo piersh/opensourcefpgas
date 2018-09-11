@@ -292,3 +292,101 @@ When you make and run this you should see the led counter increase by 1 for each
 
 [article on this]:			https://www.fpga4fun.com/Debouncer.html
 
+## Using the DIP switches
+
+The BlackIce II board has 4 built in tiny slider switches on pins 37, 38, 39 and 41.
+
+They can be used for configuration settings, but the pins are also used for some other purposes such as SD card access, so care must be taken using them.
+
+If you need more switches, you can buy the [Digilent PmodSwt][] 4 slider switch Pmod.
+
+The following example sets the LEDs according to the switch setting.
+
+Make a directory called switches and in it add:
+
+switch_test.pcf:
+
+	set_io led[0] 71
+	set_io led[1] 67
+	set_io led[2] 68
+	set_io led[3] 70
+	
+	set_io switch[0] 41
+	set_io switch[1] 39
+	set_io switch[2] 38
+	set_io switch[3] 37
+	
+	switch_test.v
+	module switch_test(
+		output [3:0] led,
+		input [3:0] switch
+	);
+
+		assign led = switch;
+  
+	endmodule
+
+And then add a Makefile and run it in the normal way.
+
+[Digilent PmodSwt]:			https://store.digilentinc.com/pmodswt-4-user-slide-switches/
+
+## PWM
+
+Pulse width modulation (PWM) is a technique to vary the power output on a digital pin by turning it on and off in pulses. A square wave of a specific frequency is sent to the pin and the length of time it is set high for each period is called the duty cycle.
+
+![PWM][img2]
+
+This technique can be used to specify the position of servo motors, the speed of gear motors, or the volume of audio (see 1-bit DAC below). It is a sort of digital equivalent of specifying the voltage level for an analog output, and can sometimes be used for the same purpose, avoiding the need for digital to analog converters.
+
+Here we will use it to set the brightness of a built-in LED.
+
+Make a directory called LEDglow and in it add:
+
+LEDglow.pcf
+
+	set_io LED 71
+	set_io clk 129
+
+LEDglow.v
+
+	module LEDglow(clk, LED);
+		input clk;
+		output LED;
+		
+		reg [27:0] cnt;
+		always @(posedge clk) cnt<=cnt+1;
+		
+		wire [3:0] PWM_input = cnt[27] ? cnt[26:23] : ~cnt[26:23];
+		reg [4:0] PWM;
+		always @(posedge clk) PWM <= PWM[3:0]+PWM_input;
+		
+		assign LED = PWM[4];
+	endmodule
+
+Makefile:
+
+	VERILOG_FILES = LEDglow.v 
+	PCF_FILE = LEDglow.pcf
+	
+	include ../blackice.mk
+
+Then run the Makefile in the normal way. You will see the blue LED glowing.
+
+[img2]:						./PWM.jpg
+
+## UART
+
+The BlackIce github sites has a set of [example programs][] including comprehensive example of use of the uart.
+
+The uart is connected to pins 85 and 88 of the Ice40 and the RTS pin can be used as a reset and is connected to pin 128 (gReset).
+
+The [HelloWorld example][] using just the TX pin and gReset. It writes “Hello World!\n” to the uart at 115200 baud every one and a half seconds.
+
+The [uart_loopback][] example does both reading and writing. It reads from the uart and echoes back what it reads at 115200 baud.
+
+The uart is useful for debugging Verilog program. [Here][] is an example of using a debug module.
+
+[example programs]:			https://github.com/mystorm-org/BlackIce-II/tree/master/examples
+[HelloWorld example]:		https://github.com/mystorm-org/BlackIce-II/tree/master/examples/hello_world
+[uart_loopback]:			https://github.com/mystorm-org/BlackIce-II/tree/master/examples/uart_loopback
+[Here]:						https://github.com/lawrie/verilog_examples/tree/master/fpga/debug
