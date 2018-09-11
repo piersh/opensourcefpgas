@@ -61,9 +61,11 @@ You should create a development directory for running the examples in this book.
 Inside that development directory, make a directory called led, and in it add the following files.
 
 You need a pcf file, led.pcf, to give the pin a name:
+
 	set_io blue_led 71
 
 And a Verilog file, led.v:
+
 	module led(
 		output blue_led
 	);
@@ -73,18 +75,21 @@ And a Verilog file, led.v:
 	endmodule
 	
 And a Makefile:
+
 	VERILOG_FILES = led.v 
 	PCF_FILE = led.pcf
 
 	include ../blackice.mk
 
 Before building this example, you should do:
+
 	stty -F /dev/ttyACM0 raw
 	cat /dev/ttyACM0
 
 This lets you see messages from the iceboot software when you upload bitstreams.
 
 To run this example, type:
+
 	make upload
 
 You should see messages on the iceboot console including the version number of iceboot and “Config done”.  You may also see “Setup done” and “Waiting for serial”.
@@ -106,12 +111,14 @@ Another problem that can occur on Linux machine is that a program called modemma
 You can address all 4 LEDs at once. Make a directory called led and in it add:
 
 leds.pcf:
+
 	set_io leds[0] 71
 	set_io leds[1] 67
 	set_io leds[2] 68
 	set_io leds[3] 70
 
 leds.v:
+
 	module leds(
 		output [3:0] leds
 	);
@@ -121,6 +128,7 @@ leds.v:
 	endmodule
  
 Makefile:
+
 	VERILOG_FILES = leds.v 
 	PCF_FILE = leds.pcf
 
