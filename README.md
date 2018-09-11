@@ -13,3 +13,4 @@ By Lawrie Griffiths
 * [Programming the Built-in Hardware](/opensourcefpgas/Programming_the_Built-in_Hardware/Programming_the_Built-in_Hardware.html)
 * [Directives](/opensourcefpgas/Directives/Directives.html)
 * [Memory Access](/opensourcefpgas/Memory_Access/Memory_Access.md)
+* [Soft Processors](/opensourcefpgas/Soft_Processors/Soft_Processors.md)
