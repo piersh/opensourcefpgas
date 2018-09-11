@@ -41,6 +41,6 @@ One example is to produce a clock of 31.5 Mhz for VGA from the 100Mhz built-in c
 		.PLLOUTCORE(clk)
 	);
 
-There is a lot of information on how to use PLLs in the [BlackIce Wiki][] .
+There is a lot of information on how to use PLLs in the [BlackIce Wiki][].
 
 [BlackIce Wiki]:			https://github.com/mystorm-org/BlackIce-II/wiki/PLLs
