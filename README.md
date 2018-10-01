@@ -17,3 +17,4 @@ By Lawrie Griffiths
 * [BlackSoC](/opensourcefpgas/BlackSoC/BlackSoC.html)
 * [Output Devices](/opensourcefpgas/Output_Devices/Output_Devices.html)
 * [Audio](/opensourcefpgas/Audio/Audio.html)
+* [Input Devices](/opensourcefpgas/Input_Devices/Input_Devices.html)
