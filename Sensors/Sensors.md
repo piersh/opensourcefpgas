@@ -30,7 +30,7 @@ This is supported in BlackSoC by mod_ping. See the [ping][] and [theremin][] exa
 
 ### Rotary sensor
 
-![Rotory Sensor][img3]
+![Rotary Sensor][img3]
 
 Other types of sensor use quadrature to count rotations. Two signals with a 90-degree phase difference allow the direction of rotation to be measured.
 
