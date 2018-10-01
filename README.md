@@ -19,3 +19,4 @@ By Lawrie Griffiths
 * [Audio](/opensourcefpgas/Audio/Audio.html)
 * [Input Devices](/opensourcefpgas/Input_Devices/Input_Devices.html)
 * [Sensors](/opensourcefpgas/Sensors/Sensors.html)
+* [Grove Devices](/opensourcefpgas/Grove_Devices/Grove_Devices.html)
