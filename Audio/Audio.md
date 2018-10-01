@@ -51,11 +51,11 @@ music.v:
 
 Run that in the normal way and you should here middle C.
 
-The fpgafun.com site describes how to do more [interesting sounds][] like police sirens. [Here][] are [here][] are the BlackIce II version of those sound generators.
+The fpgafun.com site describes how to do more [interesting sounds][] like police sirens. [Here][here1] are [here][here2] are the BlackIce II version of those sound generators.
 
 [interesting sounds]:					https://www.fpga4fun.com/MusicBox2.html
-[Here]:									https://github.com/lawrie/verilog_examples/tree/master/fpgafun/music2
-[here]:									https://github.com/lawrie/verilog_examples/tree/master/fpgafun/music2a
+[here1]:								https://github.com/lawrie/verilog_examples/tree/master/fpgafun/music2
+[here2]:								https://github.com/lawrie/verilog_examples/tree/master/fpgafun/music2a
 
 ## Playing tunes
 
