@@ -2,7 +2,7 @@
 
 ## PS/2 Keyboards
 
-![Keyboard]img1]
+![Keyboard][img1]
 
 It is not possible to use USB keyboards with BlackIce but PS/2 keyboards work as long as they are OK with 3.3v logic. Microsoft wireless keyboards work (as shown above), as do most HP ones.
 
