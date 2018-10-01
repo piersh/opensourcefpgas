@@ -12,3 +12,4 @@
 * [Input Devices](Input_Devices/Input_Devices.md)
 * [Sensors](Sensors/Sensors.md)
 * [Grove Devices](Grove_Devices/Grove_Devices.md)
+* [LEGO Mindstorm Devices](LEGO_Mindstorm_Devices/LEGO_Mindstorm_Devices.md)
