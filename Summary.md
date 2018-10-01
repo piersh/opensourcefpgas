@@ -10,3 +10,4 @@
 * [Output Devices](Output_Devices/Output_Devices.md)
 * [Audio](Audio/Audio.md)
 * [Input Devices](Input_Devices/Input_Devices.md)
+* [Sensors](Sensors/Sensors.md)

@@ -18,3 +18,4 @@ By Lawrie Griffiths
 * [Output Devices](/opensourcefpgas/Output_Devices/Output_Devices.html)
 * [Audio](/opensourcefpgas/Audio/Audio.html)
 * [Input Devices](/opensourcefpgas/Input_Devices/Input_Devices.html)
+* [Sensors](/opensourcefpgas/Sensors/Sensors.html)
