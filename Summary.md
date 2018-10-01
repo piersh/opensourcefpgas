@@ -7,3 +7,4 @@
 * [Memory Access](Memory_Access/Memory_Access.md)
 * [Soft Processors](Soft_Processors/Soft_Processors.md)
 * [BlackSoC](BlackSoC/BlackSoC.md)
+* [Output Devices](Output Devices/Output Devices.md)
