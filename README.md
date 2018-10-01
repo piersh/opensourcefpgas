@@ -16,3 +16,4 @@ By Lawrie Griffiths
 * [Soft Processors](/opensourcefpgas/Soft_Processors/Soft_Processors.html)
 * [BlackSoC](/opensourcefpgas/BlackSoC/BlackSoC.html)
 * [Output Devices](/opensourcefpgas/Output_Devices/Output_Devices.html)
+* [Audio](/opensourcefpgas/Audio/Audio.html)

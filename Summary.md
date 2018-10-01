@@ -8,3 +8,4 @@
 * [Soft Processors](Soft_Processors/Soft_Processors.md)
 * [BlackSoC](BlackSoC/BlackSoC.md)
 * [Output Devices](Output_Devices/Output_Devices.md)
+* [Audio](Audio/Audio.md)
