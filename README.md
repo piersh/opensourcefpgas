@@ -21,3 +21,4 @@ By Lawrie Griffiths
 * [Sensors](/opensourcefpgas/Sensors/Sensors.html)
 * [Grove Devices](/opensourcefpgas/Grove_Devices/Grove_Devices.html)
 * [LEGO Mindstorm Devices](/opensourcefpgas/LEGO_Mindstorm_Devices/LEGO_Mindstorm_Devices.html)
+* [Cameras](/opensourcefpgas/Cameras/Cameras.html)
