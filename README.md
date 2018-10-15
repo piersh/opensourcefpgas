@@ -27,3 +27,4 @@ By Lawrie Griffiths
 * [Communication Devices](/opensourcefpgas/CommunicationDevices/CommunicationDevices.html)
 * [Actuators](/opensourcefpgas/Actuators/Actuators.html)
 * [STM32 Programming](/opensourcefpgas/STM32Programming/STM32Programming.html)
+* [Arduino](/opensourcefpgas/Arduino/Arduino.html)
