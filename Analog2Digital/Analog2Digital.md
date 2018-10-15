@@ -1,12 +1,12 @@
-# ANALOG TO DIGITAL
+# Analog To Digital
 
-## 12-BIT ADC
+## 12-Bit ADC
 
 ![12 Bit ADC][img1]
 
 [img1]:									./12bitADC.jpg "12 Bit ADC"
 
-## 8-BIT AD/DA
+## 8-Bit AD/DA
 
 ![8 Bit AD/DA][img2]
 
