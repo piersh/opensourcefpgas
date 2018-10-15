@@ -23,3 +23,7 @@ By Lawrie Griffiths
 * [LEGO Mindstorm Devices](/opensourcefpgas/Lego_Mindstorm_Devices/Lego_Mindstorm_Devices.html)
 * [Cameras](/opensourcefpgas/Cameras/Cameras.html)
 * [Analog to Digital](/opensourcefpgas/Analog2Digital/Analog2Digital.html)
+* [Storage Devices](/opensourcefpgas/StorageDevices/StorageDevices.html)
+* [Communication Devices](/opensourcefpgas/CommunicationDevices/CommunicationDevices.html)
+* [Actuators](/opensourcefpgas/Actuators/Actuators.html)
+* [STM32 Programming](/opensourcefpgas/STM32Programming/STM32Programming.html)

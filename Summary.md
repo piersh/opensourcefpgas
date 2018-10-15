@@ -15,3 +15,7 @@
 * [LEGO Mindstorm Devices](LEGO_Mindstorm_Devices/LEGO_Mindstorm_Devices.md)
 * [Cameras](Cameras/Cameras.md)
 * [Analog to Digital](Analog2Digital/Analog2Digital.md)
+* [Storage Devices](StorageDevices/StorageDevices.md)
+* [Communication Devices](CommunicationDevices/CommunicationDevices.md)
+* [Actuators](Actuators/Actuators.md)
+* [STM32 Programming](STM32Programming/STM32Programming.md)
