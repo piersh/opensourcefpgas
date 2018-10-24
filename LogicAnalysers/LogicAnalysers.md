@@ -8,7 +8,7 @@ One logic analyser application that is available on BlackIce II is [Ice40LogicSn
 
 ![Ice40 Logic Sniffer Connections](./Ice40LogicSnifferConnections.jpg "Ice40 Logic Sniffer Connections")
 
-OLS uses a variant of the Sump protocol. There are various OLS clients that can be used including https://lxtreme.nl/projects/ols/.
+OLS uses a variant of the Sump protocol. There are various OLS clients that can be used including <https://lxtreme.nl/projects/ols/>.
 
 Here it is analysing the data from a key press via a test point Pmod connected to a Digilent PS/2 Pmod.
 

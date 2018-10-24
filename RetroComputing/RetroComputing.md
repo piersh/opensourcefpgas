@@ -18,7 +18,7 @@ Several of them require an SD card created for them to stores games and other pr
 
 ![BBC Micro](./BBC_Micro.jpg "BBC Micro")
 
-The BBC Model B implementation for BlackIce II  is available at https://github.com/hoglet67/Ice40Beeb/releases/download/release_2/icebootbeeb_blackice2.zip.
+The BBC Model B implementation for BlackIce II  is available at <https://github.com/hoglet67/Ice40Beeb/releases/download/release_2/icebootbeeb_blackice2.zip>.
 
 It was written by David Banks (@hoglet67). Like several of his other implementations it has a custom version of iceboot and includes the STM32 firmware and the Ice40 bitstream in its binary.  The binary also contains the BBC B ROMs which are send to the Ice40 using SPI. So the standard iceboot software will not work.
 
@@ -28,7 +28,7 @@ On pin 1 (right hand, top) of Pmod 11 you can attach a speaker for audio output.
 
 Its binary is written to the STM32 flash memory using dfu-util, so the jumper must be removed from the Rpi header.
 
-As the Beeb programs are on an SD card, you must format a FAT32 SD card and write https://github.com/hoglet67/Ice40Beeb/releases/download/release_1/BEEB.MMB.zip on to it. The card should be inserted and all the dip switches should be in the off (pull-up) position as otherwise the SD card access will not work.
+As the Beeb programs are on an SD card, you must format a FAT32 SD card and write <https://github.com/hoglet67/Ice40Beeb/releases/download/release_1/BEEB.MMB.zip> on to it. The card should be inserted and all the dip switches should be in the off (pull-up) position as otherwise the SD card access will not work.
 
 Switch SW4 is dual function:
 
@@ -56,11 +56,11 @@ The Acorn Atom emulation is another of David Bank’s programs. Like the BBC Mic
 
 The set-up for VGA monitor, PS/2 keyboard and audio is the same as the BBC Micro, but the way the SD card is created and used is different.
 
-The software is available at https://github.com/hoglet67/Ice40Atom/releases/download/release_3/ice40atom_20180117_1707.zip
+The software is available at <https://github.com/hoglet67/Ice40Atom/releases/download/release_3/ice40atom_20180117_1707.zip>
 
 This needs to be written to flash memory by dfu-util.
 
-The software archive is available at https://github.com/hoglet67/AtomSoftwareArchive/releases/download/V10/AtomSoftwareArchive_20180225_1154_V10_SDDOS2.zip
+The software archive is available at <https://github.com/hoglet67/AtomSoftwareArchive/releases/download/V10/AtomSoftwareArchive_20180225_1154_V10_SDDOS2.zip>
 
 You need to write this as a raw image to ad SD card by:
 
@@ -74,9 +74,9 @@ where sdxxx is SD card drive.
 
 This is another David Banks port. It again includes custom firmware and the combined binary needs to be written to flash memory with dfu-util.
 
-The latest release does not support BlackIce II, so it needs to be built with the release.sh script at https://github.com/hoglet67/Ice40CPMZ80.
+The latest release does not support BlackIce II, so it needs to be built with the release.sh script at <https://github.com/hoglet67/Ice40CPMZ80>.
 
-The SD card image is available at http://obsolescence.wixsite.com/obsolescence/multicomp-fpga-cpm-demo-disk.
+The SD card image is available at <http://obsolescence.wixsite.com/obsolescence/multicomp-fpga-cpm-demo-disk>.
 
 ## Jupiter ACE
 
@@ -84,7 +84,7 @@ And another David Banks port.
 
 The Jupiter Ace was a Forth machine.
 
-This port is a simpler one that does not require custom firmware It can be build using the build.sh file at https://github.com/hoglet67/Ice40JupiterAce/tree/master/blackice2.
+This port is a simpler one that does not require custom firmware It can be build using the build.sh file at <https://github.com/hoglet67/Ice40JupiterAce/tree/master/blackice2>.
 
 ## Apple One
 
@@ -92,7 +92,7 @@ This port is a simpler one that does not require custom firmware It can be build
 
 This implementation of the Apple One is by Alan Garfield.
 
-It is available at https://github.com/alangarf/apple-one.
+It is available at <https://github.com/alangarf/apple-one>.
 
 ## EDSAC
 
