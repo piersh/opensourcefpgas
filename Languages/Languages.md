@@ -13,10 +13,9 @@ Firstly build yosys et al. in the usual way.
 Next:
 
 	$ git clone git://github.com/cliffordwolf/yosys-plugins
-
 	$ cd yosys-plugins/vhdl
 
-	... run your editor on vhdl_frontend.cc ...
+... run your editor on vhdl_frontend.cc ...
 
 In your editor, you need to find the line __log_header("Executing VHDL frontend.\n");__ and remove the ___header__ so that it reads __log("....");__
 
@@ -50,7 +49,7 @@ There are a few ways of running Forth on BlackIce II.
 
 One way is to use the Jupiter Ace emulation described in the Retro computing chapter.
 
-Another way is to use the Mecrisp system which is available for BlackIce at <https://sourceforge.net/projects/mecrisp/files/mecrisp-ice-1.3.tar.gz/download]>
+Another way is to use the Mecrisp system which is available for BlackIce at <https://sourceforge.net/projects/mecrisp/files/mecrisp-ice-1.3.tar.gz/download>
 
 It runs James Bowman’s J1A Forth system.
 
