@@ -31,3 +31,5 @@ By Lawrie Griffiths
 * [RPi Header](/opensourcefpgas/RPiHeader/RPiHeader.html)
 * [Robotics](/opensourcefpgas/Robotics/Robotics.html)
 * [Languages](/opensourcefpgas/Languages/Languages.html)
+* [Debugging](/opensourcefpgas/Debugging/Debugging.html)
+* [Simulation](/opensourcefpgas/Simulation/Simulation.html)
