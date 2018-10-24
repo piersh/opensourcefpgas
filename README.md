@@ -29,3 +29,5 @@ By Lawrie Griffiths
 * [STM32 Programming](/opensourcefpgas/STM32Programming/STM32Programming.html)
 * [Arduino](/opensourcefpgas/Arduino/Arduino.html)
 * [RPi Header](/opensourcefpgas/RPiHeader/RPiHeader.html)
+* [Robotics](/opensourcefpgas/Robotics/Robotics.html)
+* [Languages](/opensourcefpgas/Languages/Languages.html)
