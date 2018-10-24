@@ -23,5 +23,5 @@
 * [RPi Header](RPiHeader/RPiHeader.md)
 * [Robotics](Robotics/Robotics.md)
 * [Languages](Languages/Languages.md)
-* [Debugging](Debugging/Debugging.md)]
+* [Debugging](Debugging/Debugging.md)
 * [Simulation](Simulation/Simulation.md)
